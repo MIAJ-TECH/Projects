@@ -1,0 +1,42 @@
+//
+// named.conf
+
+include "/etc/bind/rndc.key";
+
+logging {
+    channel query.log {
+        file "/var/log/named/query.log";
+        severity debug 3;
+    };
+    category queries { query.log; };
+};
+
+options {
+    listen-on port 53 { {{ ansible_eth0.ipv4.address }}; };
+
+    directory "/etc/bind";
+
+    allow-query { trusted_subnet; };
+    allow-recursion { trusted_subnet; };
+
+    recursion yes;
+
+    forwarders {
+        8.8.8.8;
+    };
+
+    max-cache-size 128M;
+    min-cache-ttl 90;
+    max-cache-ttl 86400;
+    dnssec-validation auto;
+    auth-nxdomain yes;
+};
+
+// Define ACL for trusted subnets
+acl "trusted_subnet" {
+    {% for subnet in setup_bind_trusted_subnets %}
+    {{ subnet }};
+    {% endfor %}
+};
+
+include "/etc/bind/named.conf.local";

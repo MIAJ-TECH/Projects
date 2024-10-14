@@ -1,0 +1,16 @@
+zone "{{ setup_bind_domain }}" IN {
+    type master;
+    file "/etc/bind/zones/db.{{ setup_bind_domain }}";
+    allow-update { key rndc-key; };
+};
+
+zone "{{ setup_bind_rev_domain }}" IN {
+    type master;
+    file "/etc/bind/zones/db.{{ setup_bind_rev_domain }}";
+    allow-update {key rndc-key; };
+};
+
+controls {
+     inet 127.0.0.1 port 953
+         allow { 127.0.0.1; } keys { "rndc-key"; };
+};

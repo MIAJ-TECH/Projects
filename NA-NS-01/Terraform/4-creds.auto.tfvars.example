@@ -1,0 +1,19 @@
+#endpoint="https://0.0.0.0:8006/api2/json"
+vm_name               = "NA-NS-01"                  // vm name to create
+vm_id                 = 150003                      // vm id to create
+node_name             = "NA"                        // proxmox node name
+clone_vm_id           = 2405                        // vm id to clone
+bridge_name           = "V150"                      // bridge name
+datastore_id          = "local-zfs"                 // datastore id
+base_ipv4_address     = "10.0.0.11"              // ipv4 address
+endpoint              = "https://0.0.0.0:8006" // proxmox server url / dns
+api_token             = "tf-prov@pve!na=xxxxxx-xxxxx-xxxxxx-xxxx-xxxxxxx"
+node_count            = "1" // number of nodes to create
+gw                    = "10.0.0.1"
+user_account_username = "test"
+user_account_password = "test"
+user_account_keys = [
+  "ssh-ed25519 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx test@NA",
+  "ssh-ed25519 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx user@E32",
+  "ssh-ed25519 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx test@ubuntu-talha"
+]

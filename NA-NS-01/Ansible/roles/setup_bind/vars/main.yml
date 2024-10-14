@@ -1,0 +1,9 @@
+---
+# vars file for Bind setup
+setup_bind_domain: na.miaj.tech
+
+setup_bind_rev_domain: 150.220.10.in-addr.arpa
+setup_bind_trusted_subnets:
+  - "10.220.10.0/24"
+  - "10.220.20.0/24"
+  - "10.220.150.0/29"

@@ -1,0 +1,6 @@
+---
+- name: Run bind_setup role
+  hosts: all
+  become: true
+  roles:
+    - setup_bind
