@@ -1,0 +1,18 @@
+name: Ansible
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: [self-hosted]  # Use your self-hosted runner
+    steps:
+      # Checkout code (uncomment when ready)
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run Ansible Lint
+        run: /home/srvadmin/.local/bin/ansible-lint .
