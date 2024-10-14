@@ -1,5 +1,7 @@
 # 🌟 Projects
 
+[![Ansible](https://github.com/MIAJ-TECH/Projects/actions/workflows/ansible_lint.yaml/badge.svg?event=check_run)](https://github.com/MIAJ-TECH/Projects/actions/workflows/ansible_lint.yaml)
+
 # 🔧 Project 01: BIND DNS Server
 
 This project provisions a virtual machine (VM) and configures it as a BIND DNS server using **Terraform** and **Ansible**.
